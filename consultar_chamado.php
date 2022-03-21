@@ -1,8 +1,7 @@
 <?php
-session_start();
-echo $_SESSION['autenticado'];
-
+require_once "validador_acesso.php"
 ?>
+
 
 <html>
   <head>
