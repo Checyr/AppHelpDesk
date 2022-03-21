@@ -44,6 +44,12 @@
                             User or password are wrong
                         </div>
                     <? } ?>
+
+                    <? if(isset($_GET['login']) && $_GET['login'] == 'error2') { ?>
+                        <div class="text-danger">
+                            Do login before try to access other pages
+                        </div>
+                    <? } ?>
                 </div>
                 <button class="btn btn-lg btn-info btn-block" type="submit">Entrar</button>
               </form>

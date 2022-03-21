@@ -1,5 +1,8 @@
 <?php
-    //variable that verify if the authentication have been successful
+    //when you work with session always type(on the exit) ↓
+    session_start();
+
+//variable that verify if the authentication have been successful
     $usuario_autenticado = false;
 
 
@@ -7,7 +10,7 @@
     //users from system(we're going to use array because we don't know database yet)
     $usuarios_app = array(
         array('email' => 'admin@admin.com', 'senha' => 'admin'),
-        array('email' => 'teste@teste', 'senha' => 'teste'),
+        array('email' => 'test@test', 'senha' => 'test'),
         array('email' => 'user@user.com', 'senha' => '123456'),
     );
 
@@ -27,17 +30,19 @@
 
 
         */
-
         //verify if the User Form is equal to User app
-        if($user['email' == $_POST['email'] && $user['senha'] == $_POST['senha']){
+        if($user['email'] == $_POST['email'] && $user['senha'] == $_POST['senha']){
             $usuario_autenticado = true;
         }
     }
 
     if($usuario_autenticado){
         echo "Usuario Autenticado";
+        $_SESSION['autenticado'] = "YES";
     }else{
+        $_SESSION['autenticado'] = "NO";
         header('Location: index.php?login=error');
+
     }
 
 
@@ -47,9 +52,3 @@
     echo $_GET['email'], PHP_EOL;
     echo '<br />';
     echo $_GET['senha'], PHP_EOL;*/
-    print_r($_POST);
-    echo '<br />';
-
-    echo $_POST['email'], PHP_EOL;
-    echo '<br />';
-    echo $_POST['senha'], PHP_EOL;
