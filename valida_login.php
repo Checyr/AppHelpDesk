@@ -39,6 +39,7 @@
     if($usuario_autenticado){
         echo "Usuario Autenticado";
         $_SESSION['autenticado'] = "YES";
+        header('Location: home.php');
     }else{
         $_SESSION['autenticado'] = "NO";
         header('Location: index.php?login=error');
